@@ -4,8 +4,6 @@
 
     public class Company
     {
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(100)]
         public string Address { get; set; }
