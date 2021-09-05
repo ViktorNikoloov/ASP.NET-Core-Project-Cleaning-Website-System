@@ -12,17 +12,24 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
+    public class CleaningDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         private static readonly MethodInfo SetIsDeletedQueryFilterMethod =
-            typeof(ApplicationDbContext).GetMethod(
+            typeof(CleaningDbContext).GetMethod(
                 nameof(SetIsDeletedQueryFilter),
                 BindingFlags.NonPublic | BindingFlags.Static);
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public CleaningDbContext(DbContextOptions<CleaningDbContext> options)
             : base(options)
         {
         }
+
+        public DbSet<Appointment> Appointments { get; set; }
+
+        public DbSet<Business> Businesses { get; set; }
+
+        public DbSet<Company> Companies { get; set; }
+
 
         public DbSet<Setting> Settings { get; set; }
 
