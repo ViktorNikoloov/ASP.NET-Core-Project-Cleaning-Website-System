@@ -6,8 +6,10 @@
 
     using static CleaningWeb.Common.GlobalConstants;
 
-    public class Service : BaseDeletableModel<int>
+    public class Service
     {
+        public int Id { get; set; }
+
         [Required]
         public string Image { get; set; }
 

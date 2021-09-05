@@ -2,12 +2,12 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    using CleaningWeb.Data.Common.Models;
-
     using static CleaningWeb.Common.GlobalConstants;
 
-    public class Contact : BaseDeletableModel<int>
+    public class Contact
     {
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(ContactValidation.NameLenght)]
         public string Name { get; set; }
