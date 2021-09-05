@@ -30,11 +30,8 @@
 
         public DbSet<Company> Companies { get; set; }
 
-        public DbSet<Contact> Contacts { get; set; }
 
-        public DbSet<Feedback> Feedbacks { get; set; }
-
-        public DbSet<Service> Services { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
