@@ -24,6 +24,8 @@
         {
         }
 
+
+
         public DbSet<Setting> Settings { get; set; }
 
         public DbSet<Contact> Contacts { get; set; }
