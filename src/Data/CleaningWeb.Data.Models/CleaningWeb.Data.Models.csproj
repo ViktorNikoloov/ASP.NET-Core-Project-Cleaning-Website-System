@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CleaningWeb.Common\CleaningWeb.Common.csproj" />
     <ProjectReference Include="..\CleaningWeb.Data.Common\CleaningWeb.Data.Common.csproj" />
   </ItemGroup>
   
