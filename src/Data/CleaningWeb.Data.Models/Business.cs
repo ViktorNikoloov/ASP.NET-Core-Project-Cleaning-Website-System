@@ -8,8 +8,6 @@
 
     public class Business
     {
-        public int Id { get; set; }
-
         [Required]
         public DaysOfWeek StartDay { get; set; }
 
