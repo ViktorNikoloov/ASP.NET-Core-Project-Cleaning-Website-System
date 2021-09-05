@@ -24,6 +24,12 @@
         {
         }
 
+        public DbSet<Appointment> Appointments { get; set; }
+
+        public DbSet<Business> Businesses { get; set; }
+
+        public DbSet<Company> Companies { get; set; }
+
         public DbSet<Setting> Settings { get; set; }
 
         public DbSet<Contact> Contacts { get; set; }
