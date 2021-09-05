@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CleaningWeb.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(CleaningDbContext))]
     [Migration("20201121114920_InitialCreate")]
     partial class InitialCreate
     {
