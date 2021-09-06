@@ -6,8 +6,12 @@
 
     using CleaningWeb.Data.Models.Enum;
 
+    using static CleaningWeb.Common.DataGlobalConstants.Common;
+
     public class Business
     {
+        public int Id { get; set; }
+
         [Required]
         public DaysOfWeek StartDay { get; set; }
 
@@ -15,15 +19,18 @@
         public DaysOfWeek EndDay { get; set; }
 
         [Required]
+        [DataType(DataType.Time)]
         public DateTime StartHour { get; set; }
 
         [Required]
+        [DataType(DataType.Time)]
         public DateTime EndHour { get; set; }
 
         [Required]
-        [MaxLength(11)]
+        [MaxLength(PhoneMaxLength)]
         public string EmergencyPhone { get; set; }
 
+        [Range(RangeStartedPoint, MaxVacations)]
         public IEnumerator<string> Vacations { get; set; }
     }
 }
