@@ -6,10 +6,16 @@
 
     using CleaningWeb.Data.Models.Enum;
 
+    using static CleaningWeb.Common.DataGlobalConstants.Business;
     using static CleaningWeb.Common.DataGlobalConstants.Common;
 
     public class Business
     {
+        public Business()
+        {
+            this.Vacations = new HashSet<Vacation>();
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -31,6 +37,6 @@
         public string EmergencyPhone { get; set; }
 
         [Range(RangeStartedPoint, MaxVacations)]
-        public IEnumerator<string> Vacations { get; set; }
+        public virtual ICollection<Vacation> Vacations { get; set; }
     }
 }
