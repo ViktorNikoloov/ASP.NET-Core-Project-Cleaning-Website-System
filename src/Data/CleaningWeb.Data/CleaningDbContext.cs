@@ -30,6 +30,7 @@
 
         public DbSet<Company> Companies { get; set; }
 
+        public DbSet<Vacation> Vacations { get; set; }
 
         public DbSet<Setting> Settings { get; set; }
 
