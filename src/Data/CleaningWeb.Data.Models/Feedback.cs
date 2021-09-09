@@ -2,8 +2,6 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    using CleaningWeb.Data.Common.Models;
-
     using static CleaningWeb.Common.GlobalConstants;
 
     public class Feedback
