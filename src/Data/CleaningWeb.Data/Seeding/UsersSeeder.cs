@@ -28,14 +28,14 @@
 
                 IdentityResult result = new();
 
-                if (username == " ") // Admin email
+                if (username == "admin@admin.com") // Admin email
                 {
-                    result = userManager.CreateAsync(appUser, " ").Result; //Admin password
+                    result = userManager.CreateAsync(appUser, "000000").Result; //Admin password
                 }
 
                 if (result.Succeeded)
                 {
-                    if (username == " ") // Admin email
+                    if (username == "admin@admin.com") // Admin email
                     {
                         userManager.AddToRoleAsync(appUser, GlobalConstants.AdministratorRoleName).Wait();
                     }
