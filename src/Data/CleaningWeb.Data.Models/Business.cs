@@ -24,6 +24,8 @@
         [Required]
         public DaysOfWeek EndDay { get; set; }
 
+        public DaysOfWeek? DayWithLessWorkingHour { get; set; }
+
         [Required]
         [DataType(DataType.Time)]
         public DateTime StartHour { get; set; }
@@ -31,6 +33,14 @@
         [Required]
         [DataType(DataType.Time)]
         public DateTime EndHour { get; set; }
+
+        [Required]
+        [DataType(DataType.Time)]
+        public DateTime DayWithLessWorkingHourStartHour { get; set; }
+
+        [Required]
+        [DataType(DataType.Time)]
+        public DateTime DayWithLessWorkingHourEndHour { get; set; }
 
         [Required]
         [MaxLength(PhoneMaxLength)]

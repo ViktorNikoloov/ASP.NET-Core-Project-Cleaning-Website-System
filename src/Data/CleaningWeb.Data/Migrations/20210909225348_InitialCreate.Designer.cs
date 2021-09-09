@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CleaningWeb.Data.Migrations
 {
     [DbContext(typeof(CleaningDbContext))]
-    [Migration("20210909201213_InitialCreate")]
+    [Migration("20210909225348_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -174,6 +174,15 @@ namespace CleaningWeb.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DayWithLessWorkingHour")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DayWithLessWorkingHourEndHour")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DayWithLessWorkingHourStartHour")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("EmergencyPhone")
                         .IsRequired()

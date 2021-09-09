@@ -62,8 +62,11 @@ namespace CleaningWeb.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     StartDay = table.Column<int>(type: "int", nullable: false),
                     EndDay = table.Column<int>(type: "int", nullable: false),
+                    DayWithLessWorkingHour = table.Column<int>(type: "int", nullable: true),
                     StartHour = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndHour = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DayWithLessWorkingHourStartHour = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DayWithLessWorkingHourEndHour = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EmergencyPhone = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false)
                 },
                 constraints: table =>
