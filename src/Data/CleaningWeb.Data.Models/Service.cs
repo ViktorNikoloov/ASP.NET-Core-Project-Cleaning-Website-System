@@ -1,7 +1,7 @@
 ﻿namespace CleaningWeb.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
-     
+
     public class Service
     {
         public int Id { get; set; }
