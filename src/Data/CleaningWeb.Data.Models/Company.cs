@@ -2,31 +2,42 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    using static CleaningWeb.Common.DataGlobalConstants.Common;
+    using static CleaningWeb.Common.DataGlobalConstants.Company;
+
     public class Company
     {
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(100)]
+        [MaxLength(AddressMaxLength)]
         public string Address { get; set; }
 
         [Required]
-        [MaxLength(11)]
+        [MaxLength(PhoneMaxLength)]
         public string Phone { get; set; }
 
         [Required]
         public string Email { get; set; }
 
         [Required]
-        [Range(0, 200)]
+        [MaxLength(TitleMaxLength)]
+        public string Title { get; set; }
+
+        [Required]
+        [MaxLength(DescriptionMaxLength)]
+        public string Description { get; set; }
+
+        [Required]
+        [Range(RangeStartedPoint, MaxYearOfExperienced)]
         public int YearOfExperienced { get; set; }
 
-        [Range(0, int.MaxValue)]
+        [Range(RangeStartedPoint, IntMaxValue)]
         [Required]
         public int HappyCustomer { get; set; }
 
         [Required]
-        [Range(0, int.MaxValue)]
+        [Range(RangeStartedPoint, IntMaxValue)]
         public int BuildingCleaned { get; set; }
     }
 }

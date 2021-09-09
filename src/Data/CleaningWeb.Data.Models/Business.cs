@@ -6,8 +6,16 @@
 
     using CleaningWeb.Data.Models.Enum;
 
+    using static CleaningWeb.Common.DataGlobalConstants.Business;
+    using static CleaningWeb.Common.DataGlobalConstants.Common;
+
     public class Business
     {
+        public Business()
+        {
+            this.Vacations = new HashSet<Vacation>();
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -17,15 +25,18 @@
         public DaysOfWeek EndDay { get; set; }
 
         [Required]
+        [DataType(DataType.Time)]
         public DateTime StartHour { get; set; }
 
         [Required]
+        [DataType(DataType.Time)]
         public DateTime EndHour { get; set; }
 
         [Required]
-        [MaxLength(11)]
+        [MaxLength(PhoneMaxLength)]
         public string EmergencyPhone { get; set; }
 
-        public IEnumerator<string> Vacations { get; set; }
+        [Range(RangeStartedPoint, MaxVacations)]
+        public virtual ICollection<Vacation> Vacations { get; set; }
     }
 }
