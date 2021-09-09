@@ -1,0 +1,29 @@
+﻿@using CleaningWeb.Web.ViewModels.About
+@model BusinessViewModel
+
+<div class="time-open-wrap">
+    <div class="desc p-4">
+        <h2>Business Hours</h2>
+        <div class="opening-hours">
+            <h4>Opening Days:</h4>
+            <p class="pl-3">
+                <span><strong>@Model.StartDay – @Model.EndDay:</strong> @Model.StartHour.ToLocalTime().ToShortTimeString() am to @Model.EndHour.ToLocalTime().ToShortTimeString() pm</span>
+                @if (Model.DayWithLessWorkingHour != null)
+                {
+                    <span><strong>@Model.DayWithLessWorkingHour :</strong> @Model.DayWithLessWorkingHourStartHour.ToLocalTime().ToShortTimeString() to @Model.DayWithLessWorkingHourEndHour.ToLocalTime().ToShortTimeString() pm</span>
+                }
+            </p>
+            <h4>Vacations:</h4>
+            <p class="pl-3">
+                @foreach (var vacantion in Model.Vacations)
+                {
+                    <span>@vacantion.Name - @vacantion.Date.Value.ToLocalTime().ToShortDateString()</span>
+                }
+            </p>
+        </div>
+    </div>
+    <div class="desc p-4 bg-secondary">
+        <h3 class="heading">For Emergency Cases</h3>
+        <span class="phone">(+01) @Model.EmergencyPhone</span>
+    </div>
+</div>
