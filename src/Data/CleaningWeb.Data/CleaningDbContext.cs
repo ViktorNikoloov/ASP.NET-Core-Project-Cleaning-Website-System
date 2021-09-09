@@ -32,6 +32,12 @@
 
         public DbSet<Vacation> Vacations { get; set; }
 
+        public DbSet<Contact> Contacts { get; set; }
+
+        public DbSet<Feedback> Feedback { get; set; }
+
+        public DbSet<Service> Service { get; set; }
+
         public DbSet<Setting> Settings { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
