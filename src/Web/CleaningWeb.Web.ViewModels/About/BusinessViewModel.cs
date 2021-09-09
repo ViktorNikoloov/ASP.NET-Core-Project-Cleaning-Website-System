@@ -1,23 +1,18 @@
-﻿namespace CleaningWeb.Data.Models
+﻿namespace CleaningWeb.Web.ViewModels.About
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    using CleaningWeb.Data.Models;
     using CleaningWeb.Data.Models.Enum;
+    using CleaningWeb.Services.Mapping;
 
     using static CleaningWeb.Common.DataGlobalConstants.Business;
     using static CleaningWeb.Common.DataGlobalConstants.Common;
 
-    public class Business
+    public class BusinessViewModel : IMapFrom<Business>
     {
-        public Business()
-        {
-            this.Vacations = new HashSet<Vacation>();
-        }
-
-        public int Id { get; set; }
-
         [Required]
         public DaysOfWeek StartDay { get; set; }
 

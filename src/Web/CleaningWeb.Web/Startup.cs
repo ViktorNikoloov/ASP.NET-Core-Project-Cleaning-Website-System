@@ -9,6 +9,7 @@
     using CleaningWeb.Data.Repositories;
     using CleaningWeb.Data.Seeding;
     using CleaningWeb.Services.Data;
+    using CleaningWeb.Services.Data.About;
     using CleaningWeb.Services.Mapping;
     using CleaningWeb.Services.Messaging;
     using CleaningWeb.Web.ViewModels;
@@ -73,6 +74,7 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<IAboutService, AboutService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
