@@ -1,5 +1,6 @@
 ﻿namespace CleaningWeb.Data.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     using static CleaningWeb.Common.DataGlobalConstants.Contact;
@@ -21,5 +22,8 @@
 
         [Required]
         public string Message { get; set; }
+
+        [Required]
+        public DateTime CreatedOn { get; set; }
     }
 }
