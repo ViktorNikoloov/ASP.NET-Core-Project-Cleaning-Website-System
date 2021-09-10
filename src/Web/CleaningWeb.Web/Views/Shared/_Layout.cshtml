@@ -1,4 +1,16 @@
 ﻿@using CleaningWeb.Common
+@using CleaningWeb.Web.ViewModels.Layout
+@inject CleaningWeb.Services.Data.Company.ICompanyService CompanyService
+
+@{
+    var model = CompanyService.GetCompanyInfoViewModel<CompanyInfoViewModel>();
+    var email = model.Email;
+    var address = model.Address;
+    var phone = model.Phone;
+    ;
+}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="~/css/animate.css" rel="stylesheet" />
@@ -25,7 +37,11 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-12 col-md d-flex align-items-center">
-                        <p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+00 1234 567</a> or <span class="mailus">email us:</span> <a href="#">emailsample@email.com</a></p>
+                        <p class="mb-0 phone">
+                            <i class="fas fa-phone-volume"> <span class="mailus">Phone no:</span> <a href="#">+@phone</a></i>
+                            <i class="fas fa-at"></i> <span class="mailus">email us:</span> <a href="#">@email</a>
+                            <i class="fas fa-envelope-open-text"></i> <span class="mailus">address us:</span> <a href="#">@address</a>
+                        </p>
                     </div>
                     <div class="col-12 col-md d-flex justify-content-md-end">
                         <div class="social-media">
@@ -42,20 +58,12 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Cleaning<span>company</span></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cleaning<span>company</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a asp-controller="About" asp-action="Index" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-                        <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                    </ul>
+                    <partial name="_LinkFooterAndNavBarPartialView">
                 </div>
             </div>
         </nav>
@@ -72,7 +80,7 @@
             </div>
         </div>
     </header>
-    
+
 
     <div class="container">
         <partial name="_CookieConsentPartial" />
@@ -121,14 +129,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
                     <h2 class="footer-heading">Quick Links</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="py-1 d-block">Home</a></li>
-                        <li><a href="#" class="py-1 d-block">About</a></li>
-                        <li><a href="#" class="py-1 d-block">Services</a></li>
-                        <li><a href="#" class="py-1 d-block">Works</a></li>
-                        <li><a href="#" class="py-1 d-block">Blog</a></li>
-                        <li><a href="#" class="py-1 d-block">Contact</a></li>
-                    </ul>
+                    <partial name="_LinkFooterAndNavBarPartialView">
                 </div>
                 <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                     <h2 class="footer-heading">Have a Questions?</h2>
@@ -145,17 +146,15 @@
                 <div class="col-md-12 text-center">
 
                     <p class="copyright">
-                         Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
+                        Cleaning Company. Template is licensed under CC BY 3.0.
                         Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-                         Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | Template is licensed under CC BY 3.0.
                     </p>
                 </div>
             </div>
         </div>
     </footer>
 
-    @*<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
@@ -179,4 +178,3 @@
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-@*  *@

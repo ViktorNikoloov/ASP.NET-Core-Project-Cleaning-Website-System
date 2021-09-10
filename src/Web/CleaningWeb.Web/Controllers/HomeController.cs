@@ -2,16 +2,48 @@
 {
     using System.Diagnostics;
 
+    using CleaningWeb.Services.Data.Business;
+    using CleaningWeb.Services.Data.Company;
     using CleaningWeb.Web.ViewModels;
+    using CleaningWeb.Web.ViewModels.About;
+    using CleaningWeb.Web.ViewModels.Home;
 
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
+        private readonly ICompanyService companyService;
+        private readonly IBusinessService businessService;
+
+        public HomeController(
+            ICompanyService companyService,
+            IBusinessService businessService)
+        {
+            this.companyService = companyService;
+            this.businessService = businessService;
+        }
+
         public IActionResult Index()
+        {
+            var viewModel = new HomeViewModel
+            {
+                BusinessViewModel = this.businessService.GetBusinessViewModel<BusinessViewModel>(),
+                CompanyViewModel = this.companyService.GetCompanyViewModel<CompanyViewModel>(),
+            };
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult CreateAppointment()
         {
             return this.View();
         }
+
+        //[HttpPost]
+        //public IActionResult CreateAppointment()
+        //{
+        //    return this.View();
+        //}
 
         public IActionResult Privacy()
         {
