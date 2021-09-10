@@ -1,0 +1,43 @@
+﻿@using CleaningWeb.Common
+@using CleaningWeb.Web.ViewModels.About
+@model CompanyViewModel
+
+<div class="row justify-content-start py-5">
+    <div class="col-md-12 heading-section ftco-animate">
+        <span class="subheading">Welcome to @GlobalConstants.SystemName</span>
+        <h2 class="mb-4">@Model.Title</h2>
+        <p>@Model.Description</p>
+    </div>
+</div>
+<div class="row ftco-counter py-5" id="section-counter">
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+        <div class="block-18">
+            <div class="text">
+                <strong class="number" data-number="@Model.YearOfExperienced">0</strong>
+            </div>
+            <div class="text">
+                <span>Years of <br>Experienced</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+        <div class="block-18">
+            <div class="text">
+                <strong class="number" data-number="@Model.HappyCustomer">0</strong>
+            </div>
+            <div class="text">
+                <span>Happy <br>Customers</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+        <div class="block-18">
+            <div class="text">
+                <strong class="number" data-number="@Model.BuildingCleaned">0</strong>
+            </div>
+            <div class="text">
+                <span>Building <br>Cleaned</span>
+            </div>
+        </div>
+    </div>
+</div>

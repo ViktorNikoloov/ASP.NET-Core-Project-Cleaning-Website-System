@@ -1,20 +1,35 @@
 ﻿@using CleaningWeb.Common
+@using CleaningWeb.Web.ViewModels.Layout
+@inject CleaningWeb.Services.Data.Company.ICompanyService CompanyService
+
+@{
+    var model = CompanyService.GetCompanyInfoViewModel<CompanyInfoViewModel>();
+    var email = model.Email;
+    var address = model.Address;
+    var phone = model.Phone;
+    ;
+}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/style.css">
+
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/css/magnific-popup.css" rel="stylesheet" />
+    <link href="~/css/flaticon.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/owl.theme.default.min.css" rel="stylesheet" />
+
 </head>
 <body>
     <header>
@@ -22,7 +37,11 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-12 col-md d-flex align-items-center">
-                        <p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+00 1234 567</a> or <span class="mailus">email us:</span> <a href="#">emailsample@email.com</a></p>
+                        <p class="mb-0 phone">
+                            <i class="fas fa-phone-volume"> <span class="mailus">Phone no:</span> <a href="#">+@phone</a></i>
+                            <i class="fas fa-at"></i> <span class="mailus">email us:</span> <a href="#">@email</a>
+                            <i class="fas fa-envelope-open-text"></i> <span class="mailus">address us:</span> <a href="#">@address</a>
+                        </p>
                     </div>
                     <div class="col-12 col-md d-flex justify-content-md-end">
                         <div class="social-media">
@@ -39,20 +58,12 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">Cleaning<span>company</span></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cleaning<span>company</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>
                 <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-                        <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                    </ul>
+                    <partial name="_LinkFooterAndNavBarPartialView">
                 </div>
             </div>
         </nav>
@@ -69,146 +80,7 @@
             </div>
         </div>
     </header>
-    <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row d-md-flex justify-content-center">
-                <div class="col-md-12">
-                    <div class="wrap-appointment bg-white d-md-flex pl-md-4 pb-5 pb-md-0">
-                        <form action="#" class="appointment w-100">
-                            <div class="row justify-content-center">
-                                <div class="col-12 col-md d-flex align-items-center pt-4 pt-md-0">
-                                    <div class="form-group py-md-4 py-2 px-4 px-md-0">
-                                        <label for="name">Name</label>
-                                        <input type="text" class="form-control" placeholder="Your Name">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md d-flex align-items-center">
-                                    <div class="form-group py-md-4 py-2 px-4 px-md-0">
-                                        <label for="name">Phone number</label>
-                                        <input type="text" class="form-control" placeholder="Phone number">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md d-flex align-items-center">
-                                    <div class="form-group py-md-4 py-2 px-4 px-md-0">
-                                        <label for="name">Select Services</label>
-                                        <div class="form-field">
-                                            <div class="select-wrap">
-                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">Select Services</option>
-                                                    <option value="">Spinal Manupulation</option>
-                                                    <option value="">Electrotherapy</option>
-                                                    <option value="">Manual Lymphatic</option>
-                                                    <option value="">Medical Acupuncture</option>
-                                                    <option value="">Therapeutic Exercise</option>
-                                                    <option value="">Joint Mobilization</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md d-flex align-items-center pb-4 pb-md-0">
-                                    <div class="form-group py-md-4 py-2 px-4 px-md-0">
-                                        <label for="name">Name</label>
-                                        <div class="form-field">
-                                            <div class="select-wrap">
-                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">Select Cleaners</option>
-                                                    <option value="">John Doe</option>
-                                                    <option value="">William Smith</option>
-                                                    <option value="">Danny Green</option>
-                                                    <option value="">Jason Thompson</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md d-flex align-items-center align-items-stretch">
-                                    <div class="form-group py-md-4 py-2 px-4 px-md-0 d-flex align-items-stretch bg-primary">
-                                        <input type="submit" value="Make an Appointment" class="btn btn-primary py-3 px-4">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="ftco-section ftco-no-pt ftco-no-pb">
-        <div class="container">
-            <div class="row d-flex no-gutters">
-                <div class="col-md-6 d-flex">
-                    <div class="img d-flex align-items-center justify-content-center py-5 py-md-0" style="background-image:url(images/about.jpg);">
-                        <div class="time-open-wrap">
-                            <div class="desc p-4">
-                                <h2>Business Hours</h2>
-                                <div class="opening-hours">
-                                    <h4>Opening Days:</h4>
-                                    <p class="pl-3">
-                                        <span><strong>Monday – Friday:</strong> 9am to 20 pm</span>
-                                        <span><strong>Saturday :</strong> 9am to 17 pm</span>
-                                    </p>
-                                    <h4>Vacations:</h4>
-                                    <p class="pl-3">
-                                        <span>All Sunday Days</span>
-                                        <span>All Official Holidays</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="desc p-4 bg-secondary">
-                                <h3 class="heading">For Emergency Cases</h3>
-                                <span class="phone">(+01) 123 456 7890</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 pl-md-5 pt-md-5">
-                    <div class="row justify-content-start py-5">
-                        <div class="col-md-12 heading-section ftco-animate">
-                            <span class="subheading">Welcome to Cleaning Company</span>
-                            <h2 class="mb-4">Let's make you fresher than ever</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        </div>
-                    </div>
-                    <div class="row ftco-counter py-5" id="section-counter">
-                        <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div class="block-18">
-                                <div class="text">
-                                    <strong class="number" data-number="45">0</strong>
-                                </div>
-                                <div class="text">
-                                    <span>Years of <br>Experienced</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div class="block-18">
-                                <div class="text">
-                                    <strong class="number" data-number="2342">0</strong>
-                                </div>
-                                <div class="text">
-                                    <span>Happy <br>Customers</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div class="block-18">
-                                <div class="text">
-                                    <strong class="number" data-number="30">0</strong>
-                                </div>
-                                <div class="text">
-                                    <span>Building <br>Cleaned</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <div class="container">
         <partial name="_CookieConsentPartial" />
@@ -218,7 +90,7 @@
     </div>
 
 
-    <footer class="footer ftco-section">
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
@@ -257,14 +129,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
                     <h2 class="footer-heading">Quick Links</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="py-1 d-block">Home</a></li>
-                        <li><a href="#" class="py-1 d-block">About</a></li>
-                        <li><a href="#" class="py-1 d-block">Services</a></li>
-                        <li><a href="#" class="py-1 d-block">Works</a></li>
-                        <li><a href="#" class="py-1 d-block">Blog</a></li>
-                        <li><a href="#" class="py-1 d-block">Contact</a></li>
-                    </ul>
+                    <partial name="_LinkFooterAndNavBarPartialView">
                 </div>
                 <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                     <h2 class="footer-heading">Have a Questions?</h2>
@@ -281,16 +146,15 @@
                 <div class="col-md-12 text-center">
 
                     <p class="copyright">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Cleaning Company. Template is licensed under CC BY 3.0.
                         Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | Template is licensed under CC BY 3.0.
                     </p>
                 </div>
             </div>
         </div>
     </footer>
-    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
