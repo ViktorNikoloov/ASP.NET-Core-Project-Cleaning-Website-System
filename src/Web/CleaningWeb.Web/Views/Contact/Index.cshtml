@@ -67,7 +67,7 @@
                                 <div id="form-message-success" class="mb-4">
                                     Your message was sent, thank you!
                                 </div>
-                                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                <form method="post" id="contactForm" name="contactForm" class="contactForm">
                                     @*<div asp-validation-summary="All" class="text-danger"></div>*@
                                     <div class="row">
                                         <div class="col-md-6">
@@ -100,12 +100,12 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input type="submit" value="Send Message" class="btn btn-primary">
+                                                <button type="submit" asp-controller="Contact" asp-action="Index" class="btn btn-primary">Send Message</button>
                                                 <div class="submitting"></div>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </form> 
                             </div>
                         </div>
                         <div class="col-md-5 d-flex align-items-stretch">
