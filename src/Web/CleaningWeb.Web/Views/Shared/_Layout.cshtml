@@ -1,4 +1,16 @@
 ﻿@using CleaningWeb.Common
+@using CleaningWeb.Web.ViewModels.Layout
+@inject CleaningWeb.Services.Data.Company.ICompanyService CompanyService
+
+@{
+    var model = CompanyService.GetCompanyInfoViewModel<CompanyInfoViewModel>();
+    var email = model.Email;
+    var address = model.Address;
+    var phone = model.Phone;
+    ;
+}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="~/css/animate.css" rel="stylesheet" />
@@ -25,7 +37,11 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-12 col-md d-flex align-items-center">
-                        <p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+00 1234 567</a> or <span class="mailus">email us:</span> <a href="#">emailsample@email.com</a></p>
+                        <p class="mb-0 phone">
+                            <i class="fas fa-phone-volume"> <span class="mailus">Phone no:</span> <a href="#">+@phone</a></i>
+                            <i class="fas fa-at"></i> <span class="mailus">email us:</span> <a href="#">@email</a>
+                            <i class="fas fa-envelope-open-text"></i> <span class="mailus">address us:</span> <a href="#">@address</a>
+                        </p>
                     </div>
                     <div class="col-12 col-md d-flex justify-content-md-end">
                         <div class="social-media">
