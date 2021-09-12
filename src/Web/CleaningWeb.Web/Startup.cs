@@ -11,8 +11,6 @@
     using CleaningWeb.Services.Data;
     using CleaningWeb.Services.Data.Business;
     using CleaningWeb.Services.Data.Company;
-    using CleaningWeb.Services.Data.Contact;
-    using CleaningWeb.Services.Data.Service;
     using CleaningWeb.Services.Mapping;
     using CleaningWeb.Services.Messaging;
     using CleaningWeb.Web.ViewModels;
@@ -79,8 +77,6 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IBusinessService, BusinessService>();
             services.AddTransient<ICompanyService, CompanyService>();
-            services.AddTransient<IContactService, ContactService>();
-            services.AddTransient<IServiceService, ServiceService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
