@@ -1,34 +1,21 @@
-﻿<form action="#" class="appointment w-100">
+﻿@using CleaningWeb.Web.ViewModels.Appointment
+@model MakeAppointmentInputModel
+
+<form asp-controller="Appointment" asp-action="MakeAppointment" class="appointment w-100">
     <div class="row justify-content-center">
         <div class="col-12 col-md d-flex align-items-center pt-4 pt-md-0">
             <div class="form-group py-md-4 py-2 px-4 px-md-0">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" placeholder="Your Name">
+                <label asp-for="@Model.Name"></label>
+                <input asp-for="@Model.Name" type="text" class="form-control" placeholder="Your Name">
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
             </div>
         </div>
+
         <div class="col-12 col-md d-flex align-items-center">
             <div class="form-group py-md-4 py-2 px-4 px-md-0">
-                <label for="name">Phone number</label>
-                <input type="text" class="form-control" placeholder="Phone number">
-            </div>
-        </div>
-        <div class="col-12 col-md d-flex align-items-center">
-            <div class="form-group py-md-4 py-2 px-4 px-md-0">
-                <label for="name">Select Services</label>
-                <div class="form-field">
-                    <div class="select-wrap">
-                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                        <select name="" id="" class="form-control">
-                            <option value="">Select Services</option>
-                            <option value="">Spinal Manupulation</option>
-                            <option value="">Electrotherapy</option>
-                            <option value="">Manual Lymphatic</option>
-                            <option value="">Medical Acupuncture</option>
-                            <option value="">Therapeutic Exercise</option>
-                            <option value="">Joint Mobilization</option>
-                        </select>
-                    </div>
-                </div>
+                <label asp-for="@Model.Phone"></label>
+                <input asp-for="@Model.Phone" type="text" class="form-control" placeholder="Your Phone number">
+                <span asp-validation-for="@Model.Phone" class="text-danger"></span>
             </div>
         </div>
 
@@ -36,13 +23,20 @@
 
     <div class="col-12 col-md d-flex align-items-center">
         <div class="form-group py-md-4 py-2 px-4 px-md-">
-            <label for="Description">Description</label>
-            <textarea type="text" class="form-control" placeholder="Write some additional info"> </textarea>
+            <label asp-for="@Model.Description"></label>
+            <textarea asp-for="@Model.Description" type="text" class="form-control" placeholder="Write some additional info"> </textarea>
+            <span asp-validation-for="@Model.Description" class="text-danger"></span>
         </div>
     </div>
+
     <div class="col-12 col-md d-flex align-items-center align-items-stretch mb-1">
         <div class="form-group py-md-4 py-2 px-4 px-md-0 d-flex align-items-stretch bg-primary">
             <input type="submit" value="Make an Appointment" class="btn btn-primary py-3 px-4">
         </div>
     </div>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="_GoogleReCaptchaPartial" />
+}

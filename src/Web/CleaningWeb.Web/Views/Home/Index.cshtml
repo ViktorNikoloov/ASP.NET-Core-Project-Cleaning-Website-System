@@ -1,13 +1,25 @@
 @using CleaningWeb.Web.ViewModels.Home
 @model HomeViewModel
 
+@{
+    this.ViewData["Title"] = "Home";
+
+    if (this.TempData.ContainsKey("Message"))
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            @this.TempData["Message"]
+        </div>
+    }
+}
+
 <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb">
     <div class="overlay"></div>
     <div class="container">
         <div class="row d-md-flex justify-content-center">
             <div class="col-md-12">
                 <div class="wrap-appointment bg-white d-md-flex pl-md-4 pb-5 pb-md-0">
-                    <partial name="_AppointmentPartial" />
+                    <partial name="_AppointmentPartial" model="Model.AppointmentViewModel" />
                 </div>
             </div>
         </div>
@@ -20,11 +32,11 @@
         <div class="row d-flex no-gutters">
             <div class="col-md-6 d-flex">
                 <div class="img d-flex img-size align-items-center justify-content-center py-5 py-md-0" style="background-image:url(images/about.jpg);">
-                    <partial name="_BusinessHoursPartial" model="@Model.BusinessViewModel"/>
+                    <partial name="_BusinessHoursPartial" model="@Model.BusinessViewModel" />
                 </div>
             </div>
             <div class="col-md-6 pl-md-5 pt-md-5">
-                <partial name="_CompanyPartial" model="@Model.CompanyViewModel"/>
+                <partial name="_CompanyPartial" model="@Model.CompanyViewModel" />
             </div>
         </div>
     </div>
