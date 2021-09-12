@@ -1,0 +1,30 @@
+﻿@using CleaningWeb.Web.ViewModels.Service
+@model IEnumerable<ServiceViewModel>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center pb-5 mb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Services</span>
+                <h2>How We Works</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var service in Model)
+            {
+                <div class="col-md-6 col-lg-4 services ftco-animate">
+                    <div class="d-block d-flex">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-@service.Image"></span>
+                        </div>
+                        <div class="media-body pl-3">
+                            <h3 class="heading">@service.Title</h3>
+                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                            <p><a asp-controller="Service" asp-action="@service.Title.Replace(" ",string.Empty)" class="btn-custom">Read more</a></p>
+                        </div>
+                    </div>
+                </div>
+            }         
+        </div>
+    </div>
+</section>
