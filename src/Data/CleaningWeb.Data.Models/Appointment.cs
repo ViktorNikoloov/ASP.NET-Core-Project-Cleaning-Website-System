@@ -1,6 +1,5 @@
 ﻿namespace CleaningWeb.Data.Models
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
 
     using static CleaningWeb.Common.DataGlobalConstants.Appointment;
@@ -22,10 +21,7 @@
         [MaxLength(DescriptionMaxLength)]
         public string Description { get; set; }
 
-        [Required]
-        public DateTime CreatedOn { get; set; }
-
-        public int? ServiceId { get; set; }
+        public int ServiceId { get; set; }
 
         public virtual Service Service { get; set; }
     }

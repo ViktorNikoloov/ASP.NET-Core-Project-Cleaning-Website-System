@@ -26,9 +26,9 @@
             this.emailsService = emailsService;
             this.emailSender = emailSender;
         }
-
+        
         [HttpPost]
-        public async Task<IActionResult> MakeAppointment(MakeAppointmentInputModel model)
+        public IActionResult MakeAppointment(MakeAppointmentInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
@@ -52,6 +52,7 @@
                 GlobalConstants.SystemEmail, // Put the email on which you want to receive the messages.
                 title,
                 content);
+
             this.TempData["Message"] = $"Your appointment was sent successfully";
 
             return this.Redirect("/");
