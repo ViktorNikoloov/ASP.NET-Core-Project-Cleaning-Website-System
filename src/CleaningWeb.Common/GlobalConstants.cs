@@ -6,6 +6,10 @@
 
         public const string AdministratorRoleName = "Administrator";
 
+        public const string NewAppointmentMessage = "Hello. You have a new appointment. The appointment was sent on";
+
+        public const string SystemEmail = "skorpions_1@abv.bg";
+
         public static class ContactFormData
         {
             public const string FullName = "Full Name";

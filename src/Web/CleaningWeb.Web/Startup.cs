@@ -13,6 +13,7 @@
     using CleaningWeb.Services.Data.Business;
     using CleaningWeb.Services.Data.Company;
     using CleaningWeb.Services.Data.Contact;
+    using CleaningWeb.Services.Data.Email;
     using CleaningWeb.Services.Data.Service;
     using CleaningWeb.Services.Mapping;
     using CleaningWeb.Services.Messaging;
@@ -76,7 +77,8 @@
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // Application services
-            services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IEmailSender>(x => new SendGridEmailSender(this.configuration["SendGrid:ApiKey"]));
+            services.AddTransient<IEmailsService, EmailsService>();
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IBusinessService, BusinessService>();
             services.AddTransient<ICompanyService, CompanyService>();
