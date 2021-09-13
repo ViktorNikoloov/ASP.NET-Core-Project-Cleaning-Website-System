@@ -15,7 +15,11 @@
 
         public IActionResult Index()
         {
-            var serviceModel = this.serviceService.GetAllInFormationForService<ServiceViewModel>();
+            var serviceModel = new ServiceListViewModel
+            {
+                Services = this.serviceService.GetAllInFormationForService<ServiceViewModel>(),
+            };
+
             return this.View(serviceModel);
         }
 

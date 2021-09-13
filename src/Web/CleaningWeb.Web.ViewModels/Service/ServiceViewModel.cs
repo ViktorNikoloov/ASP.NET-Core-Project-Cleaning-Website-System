@@ -5,10 +5,14 @@
 
     public class ServiceViewModel : IMapFrom<Service>
     {
-        public string Image { get; set; }
-
         public string Title { get; set; }
 
         public string Description { get; set; }
+
+        public string ShortDescription => this.Description?.Length > 60 ? this.Description?.Substring(0, 50) + "..." : this.Description;
+
+        public string Image { get; set; }
+
+        public string Url => $"{this.Title.Replace(" ", string.Empty)}";
     }
 }
