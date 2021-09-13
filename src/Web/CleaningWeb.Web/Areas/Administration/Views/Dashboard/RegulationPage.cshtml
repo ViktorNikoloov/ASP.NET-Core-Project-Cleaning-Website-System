@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "RegulationPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Admin Dashboard</h1>
+
+<div class="container bg-light p-2 table-bordered border-primary">
+    <div class="row">
+
+        <div class="col-lg-4 d-flex align-items-stretch m-1">
+            <div class="card h-100">
+                <div class="card-body text-center bg-light table-bordered border-primary w-100">
+                    <span class="card-title">
+                        <i class="fas fa-user-lock fa-5x text-primary"></i>
+                    </span>
+                    <h5 class="card-title">Take a look of the collect information.</h5>
+                    <p class="card-text">This is the place where come all collect information.</p>
+                    <div class="btn btn-outline-primary">
+                        <a class="nav-link" asp-area="Administration" asp-controller="Dashboard" asp-action="CollectedInformation">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 d-flex align-items-stretch m-1">
+            <div class="card h-100">
+                <div class="card-body text-center bg-light table-bordered border-primary w-100">
+                    <span class="card-title">
+                        <i class="fas fa-person-booth fa-5x text-primary"></i>
+                    </span>
+                    <h5 class="card-title">Make changes all over the side</h5>
+                    <p class="card-text">This is the place where you could add, change or delete whatever you want.</p>
+                    <div class="btn btn-outline-primary">
+                        <a class="nav-link" asp-area="Administration" asp-controller="Dashboard" asp-action="MakeChanges">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
