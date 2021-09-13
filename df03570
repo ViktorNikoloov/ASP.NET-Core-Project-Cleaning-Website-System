@@ -1,0 +1,90 @@
+[33mcd0e1f4[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #30 from ViktorNikoloov/Development
+[33mdf03570[m[33m ([m[1;31morigin/Development[m[33m, [m[1;32mDevelopment[m[33m)[m Merge branch 'main' into Development
+[33ma80db2e[m Create Appointment controller and service. Implement make an appointment method.
+[33m158ad18[m Add new migrations
+[33me4dae80[m Merge branch 'Development' into main
+[33m07a4a45[m Save Appointment controller before a merge
+[33m4b40228[m Refactoring Service's view models and controller
+[33m05a3a34[m Update
+[33m10d39c5[m Update
+[33m3d665d1[m Add Description column to the Appointment table
+[33m49ec956[m Create MakeAppointmentInputModel, Refactoring _AppointmentPartial, HomeViewModel and Home's index page according to the new model.
+[33m29f561f[m Service view page refactoring
+[33md41d385[m Merge pull request #27 from VelinovAngel/main
+[33m11340f4[m Add all necessary to Service Page , create custom css file , add new
+[33me9cad6c[m Merge pull request #26 from ViktorNikoloov/revert-25-main
+[33m847e8f8[m[33m ([m[1;31morigin/revert-25-main[m[33m)[m Revert "Add all necessary to Service Page , create custom css file , add new migration"
+[33mfee7aa1[m Merge pull request #25 from VelinovAngel/main
+[33m8344798[m Merge pull request #24 from VelinovAngel/main
+[33mf38bf39[m Add all necessary to Service Page , create custom css file , add new migration
+[33m176f64b[m little change in index view
+[33m2408c4b[m Implemented contact form for customers.
+[33m13ea602[m Introduce constans value for data models.Implemented Service and Contact controller with apposit view models.
+[33m67fd7c4[m 3 Entities
+[33m01839f4[m Contact, Feedback and Service
+[33me588e56[m Merge pull request #23 from ViktorNikoloov/Development
+[33m8f6a2df[m Change Layout UI  a little and add CompanyInfoViewModel
+[33m9558624[m Implement Home Service, Controller and ViewModel
+[33mb377e0c[m Refactoring
+[33mbd40563[m Merge pull request #22 from VelinovAngel/main
+[33mb173a7d[m Merge branch 'Development' into main
+[33mb52919d[m Implement About controller
+[33mae35bc6[m Create ViewModels for About, Business and Company views
+[33mddd304d[m Implement About page and Business and Company partial views
+[33m8420a73[m Implement About Service
+[33m7c39aa1[m New DB migration
+[33md4af8c4[m Scaffolded Register and Login , introduce 3 partial views in Index page.
+[33m7fa7e5a[m Merge pull request #21 from VelinovAngel/main
+[33m7a4b1d6[m About and Layout
+[33m643ec8d[m Take incoming file
+[33m4944376[m New migrations
+[33mf8fb4ff[m Merge pull request #9 from ViktorNikoloov/Development
+[33m4152670[m Add merge changes
+[33m8598f31[m Implement About controller and View
+[33mcaa9a70[m Add Migrations
+[33m2546faa[m Merge pull request #20 from VelinovAngel/main
+[33m65c6e23[m Nwe Index and Layout
+[33m05eecf2[m Merge pull request #8 from ViktorNikoloov/Development
+[33mb5b76fc[m Implement UsersSeeder
+[33m5cee1da[m Merge pull request #19 from VelinovAngel/main
+[33m6b051c2[m whitespace
+[33m64d7531[m Merge pull request #18 from ViktorNikoloov/revert-17-main
+[33m4a3af9b[m[33m ([m[1;31morigin/revert-17-main[m[33m)[m Revert "Feedback, Contact, Service"
+[33m425492b[m Merge pull request #17 from VelinovAngel/main
+[33m93a68e8[m Merge pull request #16 from ViktorNikoloov/main
+[33m298cfe9[m Feedback , Contact , Service
+[33me327722[m Merge branch 'ViktorNikoloov:main' into main
+[33m1d8e905[m delete
+[33m781639a[m Remove namespaces
+[33mca20d38[m Merge pull request #13 from ViktorNikoloov/Development
+[33mcc24473[m Merge pull request #12 from ViktorNikoloov/main
+[33m1be6860[m Some changes
+[33mc03a574[m Merge pull request #11 from ViktorNikoloov/Development
+[33m2b13601[m Add Vacation's table missing primary key
+[33m5555b1f[m Add new tabale and relations
+[33m8e897aa[m Implement Admin seeding and create admin account
+[33m3032658[m Add Validation scripts
+[33m774756d[m Implement Google ReCaptcha
+[33mfe10569[m DB refactoring
+[33m85f8339[m Merge pull request #9 from ViktorNikoloov/Development
+[33m5c27602[m Merge pull request #8 from ViktorNikoloov/main
+[33m5c43d4c[m Merge pull request #7 from ViktorNikoloov/revert-6-Development
+[33m03b8203[m Merge branch 'ViktorNikoloov:main' into main
+[33mabf68f7[m Revert "Development"
+[33mb36e0a5[m Merge pull request #6 from ViktorNikoloov/Development
+[33mb0461da[m Change entities , remove BaseDeletableModel and introduce Id property
+[33ma7c316b[m Add Id's to the tables
+[33m1604f5b[m Merge pull request #3 from ViktorNikoloov/Development
+[33m4154d8b[m Some changes!
+[33m7f00b2e[m white space
+[33m53fe3c7[m Merge branch 'main' into Development
+[33m653ccd4[m Some changes
+[33meea34a3[m Merge pull request #5 from ViktorNikoloov/main
+[33m0d01873[m Add some of the project's tables
+[33m3ace344[m Create some of the tables
+[33mf5849a3[m Create Appointment, Business and Company tables.
+[33md228e2c[m Create three tables : Cotact , Feedback and Service with validations
+[33m0c8c436[m Apply layout and more pages
+[33m0d82532[m Add new template
+[33mb9873cb[m Integrate CleaningWeb's template
+[33ma335e60[m Initial commit
