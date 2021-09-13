@@ -34,5 +34,20 @@
 
             public const int MaxYearOfExperienced = 200;
         }
+
+        public static class Feedback
+        {
+            public const int MaxTitleLength = 50;
+        }
+
+        public static class Contact
+        {
+            public const int ContactValidation = 50;
+        }
+
+        public static class Service
+        {
+            public const int TitleLength = 50;
+        }
     }
 }

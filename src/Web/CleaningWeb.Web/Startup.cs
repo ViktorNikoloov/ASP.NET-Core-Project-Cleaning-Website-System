@@ -12,6 +12,8 @@
     using CleaningWeb.Services.Data.Appointment;
     using CleaningWeb.Services.Data.Business;
     using CleaningWeb.Services.Data.Company;
+    using CleaningWeb.Services.Data.Contact;
+    using CleaningWeb.Services.Data.Service;
     using CleaningWeb.Services.Mapping;
     using CleaningWeb.Services.Messaging;
     using CleaningWeb.Web.ViewModels;

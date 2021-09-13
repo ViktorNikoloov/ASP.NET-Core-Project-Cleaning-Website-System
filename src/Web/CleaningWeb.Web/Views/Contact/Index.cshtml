@@ -1,0 +1,149 @@
+﻿@using CleaningWeb.Web.Controllers
+@using CleaningWeb.Web.ViewModels.Layout
+@model ContactFormModel
+@inject CleaningWeb.Services.Data.Company.ICompanyService CompanyService
+
+@{
+    var model = CompanyService.GetCompanyInfoViewModel<CompanyInfoViewModel>();
+    var email = model.Email;
+    var address = model.Address;
+    var phone = model.Phone;
+    ;
+}
+
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="wrapper">
+                    <div class="row mb-5">
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center">
+                                    <span class="fa fa-map-marker"></span>
+                                </div>
+                                <div class="text">
+                                    <p><span>Address:</span> @address</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center">
+                                    <span class="fa fa-phone"></span>
+                                </div>
+                                <div class="text">
+                                    <p><span>Phone:</span> <a href="tel://@phone">@phone.Substring(0, 4) @phone.Substring(4)</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center">
+                                    <span class="fa fa-paper-plane"></span>
+                                </div>
+                                <div class="text">
+                                    <p><span>Email:</span> <a href="mailto:cleaningcompany@cleaningcompany.bg">info@cleaningcompany.bg</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center">
+                                    <span class="fa fa-globe"></span>
+                                </div>
+                                <div class="text">
+                                    <p><span>Website</span> <a href="#">cleaningcompany.bg</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-7">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Contact Us</h3>
+                                <div id="form-message-warning" class="mb-4"></div>
+                                <div id="form-message-success" class="mb-4">
+                                    Your message was sent, thank you!
+                                </div>
+                                <form method="post" id="contactForm" name="contactForm" class="contactForm">
+                                    @*<div asp-validation-summary="All" class="text-danger"></div>*@
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label asp-for="FullName" class="label">Full Name</label>
+                                                <input asp-for="FullName" class="form-control" placeholder="Name">
+                                                <span asp-validation-for="FullName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label asp-for="Email" class="label">Email Address</label>
+                                                <input asp-for="Email" class="form-control" placeholder="Email">
+                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label asp-for="Subject" class="label">Subject</label>
+                                                <input asp-for="Subject" class="form-control" placeholder="Subject">
+                                                <span asp-validation-for="Subject" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label asp-for="Messages" class="label">Message</label>
+                                                <textarea asp-for="Messages" class="form-control" cols="30" rows="4" placeholder="Message"></textarea>
+                                                <span asp-validation-for="Messages" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <button type="submit" asp-controller="Contact" asp-action="Index" class="btn btn-primary">Send Message</button>
+                                                <div class="submitting"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form> 
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-flex align-items-stretch">
+                            <div class="info-wrap w-100 p-5 img" style="background-image: url(images/about.jpg);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id="map" class="map"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb bg-primary">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8 py-4">
+                <div class="row">
+                    <div class="col-md-6 ftco-animate d-flex align-items-center">
+                        <h2 class="mb-0" style="color:white; font-size: 24px;">Subcribe to our Newsletter</h2>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center">
+                        <form action="#" class="subscribe-form">
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control" placeholder="Enter email address">
+                                <input type="submit" value="Subscribe" class="submit px-3">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
