@@ -17,6 +17,10 @@
         [MaxLength(PhoneMaxLength)]
         public string Phone { get; set; }
 
+        [Required]
+        [MaxLength(DescriptionMaxLength)]
+        public string Description { get; set; }
+
         public int ServiceId { get; set; }
 
         public virtual Service Service { get; set; }
