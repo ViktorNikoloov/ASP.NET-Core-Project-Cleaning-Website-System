@@ -1,5 +1,6 @@
 ﻿namespace CleaningWeb.Web.ViewModels.Appointment
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     using static CleaningWeb.Common.DataGlobalConstants.Appointment;
@@ -20,5 +21,9 @@
         [MaxLength(DescriptionMaxLength)]
         [StringLength(DescriptionMaxLength, ErrorMessage = "\"{0}\" must be between \"{2}\" and \"{1}\" symbols.", MinimumLength = DescriptionMinLength)]
         public string Description { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime CreatedOn { get; set; }
     }
 }
