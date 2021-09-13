@@ -13,29 +13,29 @@
 
     public class AppointmentController : BaseController
     {
-        private readonly IAppointmentsService appointmentService;
+        private readonly IAppointmentsService appointmentsService;
         private readonly IEmailsService emailsService;
         private readonly IEmailSender emailSender;
 
         public AppointmentController(
-            IAppointmentsService appointmentService,
+            IAppointmentsService appointmentsService,
             IEmailsService emailsService,
             IEmailSender emailSender)
         {
-            this.appointmentService = appointmentService;
+            this.appointmentsService = appointmentsService;
             this.emailsService = emailsService;
             this.emailSender = emailSender;
         }
-        
+
         [HttpPost]
-        public IActionResult MakeAppointment(MakeAppointmentInputModel model)
+        public async Task<IActionResult> MakeAppointment(MakeAppointmentInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }
 
-            var isSuccessful = await this.appointmentService.MakeAppointmentAsync(model);
+            var isSuccessful = await this.appointmentsService.MakeAppointmentAsync(model);
 
             if (!isSuccessful)
             {
