@@ -2,6 +2,13 @@
 @model MakeAppointmentInputModel
 
 <form asp-controller="Appointment" asp-action="MakeAppointment" class="appointment w-100">
+    @if (this.TempData.ContainsKey("Message"))
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            @this.TempData["Message"]
+        </div>
+    }
     <div class="row justify-content-center">
         <div class="col-12 col-md d-flex align-items-center pt-4 pt-md-0">
             <div class="form-group py-md-4 py-2 px-4 px-md-0">
