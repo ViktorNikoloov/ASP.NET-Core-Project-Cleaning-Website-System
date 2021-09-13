@@ -25,4 +25,8 @@
     <ProjectReference Include="..\CleaningWeb.Services.Mapping\CleaningWeb.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Appointment\" />
+  </ItemGroup>
+
 </Project>
