@@ -4,23 +4,27 @@
 
     using CleaningWeb.Services.Data.Business;
     using CleaningWeb.Services.Data.Company;
+    using CleaningWeb.Services.Data.Service;
     using CleaningWeb.Web.ViewModels;
     using CleaningWeb.Web.ViewModels.About;
     using CleaningWeb.Web.ViewModels.Home;
-
+    using CleaningWeb.Web.ViewModels.Service;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
         private readonly ICompanyService companyService;
         private readonly IBusinessService businessService;
+        private readonly IServiceService serviceService;
 
         public HomeController(
             ICompanyService companyService,
-            IBusinessService businessService)
+            IBusinessService businessService,
+            IServiceService serviceService)
         {
             this.companyService = companyService;
             this.businessService = businessService;
+            this.serviceService = serviceService;
         }
 
         public IActionResult Index()
@@ -29,6 +33,7 @@
             {
                 BusinessViewModel = this.businessService.GetBusinessViewModel<BusinessViewModel>(),
                 CompanyViewModel = this.companyService.GetCompanyViewModel<CompanyViewModel>(),
+                Services = this.serviceService.GetAllInFormationForService<ServiceViewModel>(),
             };
 
             return this.View(viewModel);
