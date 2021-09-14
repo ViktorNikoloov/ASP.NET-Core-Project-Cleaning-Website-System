@@ -27,7 +27,7 @@
             this.emailsService = emailsService;
             this.emailSender = emailSender;
         }
-        
+
         [HttpPost]
         public IActionResult MakeAppointment(MakeAppointmentInputModel model)
         {
