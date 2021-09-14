@@ -14,6 +14,9 @@
         public static class Appointment
         {
             public const int NameMaxLength = 50;
+            public const int NameMinLength = 3;
+            public const int DescriptionMaxLength = 1000;
+            public const int DescriptionMinLength = 50;
         }
 
         public static class Business
@@ -30,6 +33,21 @@
             public const int DescriptionMaxLength = 1000;
 
             public const int MaxYearOfExperienced = 200;
+        }
+
+        public static class Feedback
+        {
+            public const int MaxTitleLength = 50;
+        }
+
+        public static class Contact
+        {
+            public const int ContactValidation = 50;
+        }
+
+        public static class Service
+        {
+            public const int TitleLength = 50;
         }
     }
 }

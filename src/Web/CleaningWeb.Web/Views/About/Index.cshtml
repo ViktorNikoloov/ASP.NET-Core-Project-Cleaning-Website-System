@@ -1,20 +1,24 @@
 ﻿@using CleaningWeb.Web.ViewModels.About
 @model AboutViewModel
- 
+@{
+    this.ViewData["Title"] = "About";
+}
+
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container">
         <div class="row d-flex no-gutters">
             <div class="col-md-6 d-flex">
-                <div class="img d-flex align-items-center justify-content-center py-5 py-md-0" style="background-image:url(images/about.jpg);">
+                <div class="img d-flex img-size align-items-center justify-content-center py-5 py-md-0" style="background-image:url(images/about.jpg);">
                     <partial name="_BusinessHoursPartial" model="@Model.BusinessViewModel" />
                 </div>
             </div>
             <div class="col-md-6 pl-md-5 pt-md-5">
-               <partial name="_CompanyPartial" model="@Model.CompanyViewModel" />
+                <partial name="_CompanyPartial" model="@Model.CompanyViewModel" />
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="ftco-section">
     <div class="container">

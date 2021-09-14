@@ -1,22 +1,41 @@
 ﻿namespace CleaningWeb.Web.Areas.Administration.Controllers
 {
-    using CleaningWeb.Services.Data;
+    using CleaningWeb.Services.Data.Administator;
     using CleaningWeb.Web.ViewModels.Administration.Dashboard;
 
     using Microsoft.AspNetCore.Mvc;
 
     public class DashboardController : AdministrationController
     {
-        private readonly ISettingsService settingsService;
+        private readonly IAdministratorService administratorService;
 
-        public DashboardController(ISettingsService settingsService)
+        public DashboardController(IAdministratorService administratorService)
         {
-            this.settingsService = settingsService;
+            this.administratorService = administratorService;
         }
 
-        public IActionResult Index()
+        public IActionResult RegulationPage()
         {
-            var viewModel = new IndexViewModel { SettingsCount = this.settingsService.GetCount(), };
+            return this.View();
+        }
+
+        public IActionResult CollectedInformation()
+        {
+            return this.View();
+        }
+
+        public IActionResult MakeChanges()
+        {
+            return this.View();
+        }
+
+        public IActionResult AllAppointments()
+        {
+            var viewModel = new AppointmentsListViewModel
+            {
+                AllAppointments = this.administratorService.GetAllAppointments<AppointmentInListViewModel>(),
+            };
+
             return this.View(viewModel);
         }
     }

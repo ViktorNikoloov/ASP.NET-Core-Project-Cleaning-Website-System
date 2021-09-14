@@ -9,8 +9,13 @@
     using CleaningWeb.Data.Repositories;
     using CleaningWeb.Data.Seeding;
     using CleaningWeb.Services.Data;
+    using CleaningWeb.Services.Data.Administator;
+    using CleaningWeb.Services.Data.Appointment;
     using CleaningWeb.Services.Data.Business;
     using CleaningWeb.Services.Data.Company;
+    using CleaningWeb.Services.Data.Contact;
+    using CleaningWeb.Services.Data.Email;
+    using CleaningWeb.Services.Data.Service;
     using CleaningWeb.Services.Mapping;
     using CleaningWeb.Services.Messaging;
     using CleaningWeb.Web.ViewModels;
@@ -73,10 +78,15 @@
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // Application services
-            services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<IEmailSender>(x => new SendGridEmailSender(this.configuration["SendGrid:ApiKey"]));
+            services.AddTransient<IEmailsService, EmailsService>();
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IBusinessService, BusinessService>();
             services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<IAppointmentsService, AppointmentsService>();
+            services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<IServiceService, ServiceService>();
+            services.AddTransient<IAdministratorService, AdministratorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
