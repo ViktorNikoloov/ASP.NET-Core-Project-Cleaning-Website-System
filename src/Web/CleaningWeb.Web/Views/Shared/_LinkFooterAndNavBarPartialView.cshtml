@@ -1,6 +1,19 @@
-﻿<ul class="navbar-nav ml-auto">
-    <li class="nav-item active"><a  asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
-    <li class="nav-item"><a asp-area="" asp-controller="About" asp-action="Index" class="nav-link">About</a></li>
-    <li class="nav-item"><a asp-area="" asp-controller="Service" asp-action="Index" class="nav-link">Services</a></li>
-    <li class="nav-item"><a asp-area="" asp-controller="Contact" asp-action="Index" class="nav-link">Contact</a></li>
+﻿@using CleaningWeb.Data.Models
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http.Extensions
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    string strPathAndQuery = @Context.Request.GetEncodedUrl();
+    var about = new[] { "About", "Service", "Contact", "Admin" };
+}
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item @if (!about.Any(strPathAndQuery.Contains)) { <text>active</text> }"><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+    <li class="nav-item @if (strPathAndQuery.Contains("About")) { <text>active</text> }"><a asp-area="" asp-controller="About" asp-action="Index" class="nav-link">About</a></li>
+    <li class="nav-item @if (strPathAndQuery.Contains("Service")) { <text>active</text> }"><a asp-area="" asp-controller="Service" asp-action="Index" class="nav-link">Services</a></li>
+    <li class="nav-item @if (strPathAndQuery.Contains("Contact")) { <text>active</text> }"><a asp-area="" asp-controller="Contact" asp-action="Index" class="nav-link">Contact</a></li>
+    @if (SignInManager.IsSignedIn(this.User))
+    {
+        <li class="nav-item @if (strPathAndQuery.Contains("Admin")) { <text>active</text> }"><a asp-area="Administration" asp-controller="Dashboard" asp-action="RegulationPage" class="nav-link">Admin</a></li>
+    }
 </ul>
