@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CleaningWeb.Data.Migrations
 {
     [DbContext(typeof(CleaningDbContext))]
-    [Migration("20210926210351_AddIsEmergencyPhoneColumnIntoBusinessTable")]
-    partial class AddIsEmergencyPhoneColumnIntoBusinessTable
+    [Migration("20210926223346_MakeDayWithLessWorkinghourNullable")]
+    partial class MakeDayWithLessWorkinghourNullable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -186,10 +186,12 @@ namespace CleaningWeb.Data.Migrations
                     b.Property<int?>("DayWithLessWorkingHour")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DayWithLessWorkingHourEndHour")
+                    b.Property<DateTime?>("DayWithLessWorkingHourEndHour")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DayWithLessWorkingHourStartHour")
+                    b.Property<DateTime?>("DayWithLessWorkingHourStartHour")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<int>("EndDay")

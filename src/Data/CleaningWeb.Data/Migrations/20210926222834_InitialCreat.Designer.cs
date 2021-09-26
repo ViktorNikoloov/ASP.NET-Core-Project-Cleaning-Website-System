@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CleaningWeb.Data.Migrations
 {
     [DbContext(typeof(CleaningDbContext))]
-    [Migration("20210911092048_ChangeRestrictionOfEntityService")]
-    partial class ChangeRestrictionOfEntityService
+    [Migration("20210926222834_InitialCreat")]
+    partial class InitialCreat
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -148,6 +148,14 @@ namespace CleaningWeb.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -158,7 +166,7 @@ namespace CleaningWeb.Data.Migrations
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
 
-                    b.Property<int>("ServiceId")
+                    b.Property<int?>("ServiceId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -184,16 +192,19 @@ namespace CleaningWeb.Data.Migrations
                     b.Property<DateTime>("DayWithLessWorkingHourStartHour")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EmergencyPhone")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
-
                     b.Property<int>("EndDay")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("EndHour")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsEmergencyPhone")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<int>("StartDay")
                         .HasColumnType("int");
@@ -495,9 +506,7 @@ namespace CleaningWeb.Data.Migrations
                 {
                     b.HasOne("CleaningWeb.Data.Models.Service", "Service")
                         .WithMany()
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("ServiceId");
 
                     b.Navigation("Service");
                 });

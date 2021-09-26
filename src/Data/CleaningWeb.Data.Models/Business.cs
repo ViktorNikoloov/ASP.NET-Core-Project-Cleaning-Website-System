@@ -36,15 +36,17 @@
 
         [Required]
         [DataType(DataType.Time)]
-        public DateTime DayWithLessWorkingHourStartHour { get; set; }
+        public DateTime? DayWithLessWorkingHourStartHour { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
-        public DateTime DayWithLessWorkingHourEndHour { get; set; }
+        public DateTime? DayWithLessWorkingHourEndHour { get; set; }
+
+        public bool IsEmergencyPhone { get; set; }
 
         [Required]
         [MaxLength(PhoneMaxLength)]
-        public string EmergencyPhone { get; set; }
+        public string Phone { get; set; }
 
         [Range(RangeStartedPoint, MaxVacations)]
         public virtual ICollection<Vacation> Vacations { get; set; }
