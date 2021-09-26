@@ -1,6 +1,8 @@
 ﻿@using CleaningWeb.Web.ViewModels.About
 @model AboutViewModel
- 
+@{
+    this.ViewData["Title"] = "About";
+}
 
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container">
@@ -11,7 +13,7 @@
                 </div>
             </div>
             <div class="col-md-6 pl-md-5 pt-md-5">
-               <partial name="_CompanyPartial" model="@Model.CompanyViewModel" />
+                <partial name="_CompanyPartial" model="@Model.CompanyViewModel" />
             </div>
         </div>
     </div>

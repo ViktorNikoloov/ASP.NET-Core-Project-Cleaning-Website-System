@@ -13,17 +13,27 @@
                     <span><strong>@Model.DayWithLessWorkingHour :</strong> @Model.DayWithLessWorkingHourStartHour.ToLocalTime().ToShortTimeString() to @Model.DayWithLessWorkingHourEndHour.ToLocalTime().ToShortTimeString() pm</span>
                 }
             </p>
-            <h4>Vacations:</h4>
-            <p class="pl-3">
-                @foreach (var vacantion in Model.Vacations)
-                {
-                    <span>@vacantion.Name - @vacantion.Date.Value.ToLocalTime().ToShortDateString()</span>
-                }
-            </p>
+            @if (Model.Vacations.Count() != 0)
+            {
+                <h4>Vacations:</h4>
+                <p class="pl-3">
+                    @foreach (var vacantion in Model.Vacations)
+                    {
+                        <span>@vacantion.Name - @vacantion.Date.Value.ToLocalTime().ToShortDateString()</span>
+                    }
+                </p>
+            }
         </div>
     </div>
     <div class="desc p-4 bg-secondary">
-        <h3 class="heading">For Emergency Cases</h3>
-        <span class="phone">(+01) @Model.EmergencyPhone</span>
+        @if (Model.IsEmergencyPhone)
+        {
+            <h3 class="heading">For Emergency Cases</h3>
+        }
+        else
+        {
+            <h3 class="heading">Company Phone no:</h3>
+        }
+        <span class="phone">(+01) @Model.Phone</span>
     </div>
 </div> 

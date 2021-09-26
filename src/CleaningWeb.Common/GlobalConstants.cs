@@ -2,7 +2,8 @@
 {
     public static class GlobalConstants
     {
-        public const string SystemName = "CleaningWeb";
+        public const string SystemNameFirstPart = "Master";
+        public const string SystemNameSecondPart = "Services Inc";
 
         public const string AdministratorRoleName = "Administrator";
 
