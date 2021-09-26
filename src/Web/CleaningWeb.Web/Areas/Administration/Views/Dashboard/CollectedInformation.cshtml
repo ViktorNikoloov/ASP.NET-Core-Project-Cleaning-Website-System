@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Information page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Information page</h1>
+
+<div class="container bg-light p-2 table-bordered border-primary">
+    <div class="row">
+
+        <div class="col-lg-4 d-flex align-items-stretch m-1">
+            <div class="card h-100">
+                <div class="card-body text-center bg-light table-bordered border-primary w-100">
+                    <span class="card-title">
+                        <i class="far fa-calendar-check fa-5x text-primary"></i>
+                    </span>
+                    <h5 class="card-title">Take a look of all send appointments.</h5>
+                    <p class="card-text">This is the place where all appointments come.</p>
+                    <div class="btn btn-outline-primary">
+                        <a class="nav-link" asp-area="Administration" asp-controller="Dashboard" asp-action="AllAppointments">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 d-flex align-items-stretch m-1">
+            <div class="card h-100">
+                <div class="card-body text-center bg-light table-bordered border-primary w-100">
+                    <span class="card-title">
+                        <i class="fas fa-envelope-open-text fa-5x text-primary"></i>
+                    </span>
+                    <h5 class="card-title">Take a look of all send messages.</h5>
+                    <p class="card-text">This is the place where all messages come.</p>
+                    <div class="btn btn-outline-primary">
+                        <a class="nav-link" asp-area="" asp-controller="" asp-action="">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <a asp-area="Administration" asp-controller="Dashboard" asp-action="RegulationPage" class="btn btn-outline-primary btn-icon btn-block" type="submit" name="action">
+            <i class="fas fa-arrow-left">Back</i>
+        </a>
+    </div>
+</div>
+

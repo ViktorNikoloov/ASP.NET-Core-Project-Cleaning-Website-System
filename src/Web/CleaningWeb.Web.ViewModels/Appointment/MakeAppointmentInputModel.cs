@@ -16,7 +16,7 @@
         [Required]
         [Display(Name = "Phone number")]
         [StringLength(PhoneMaxLength, ErrorMessage = "\"{0}\" must contains exactly \"{1}\" numbers.", MinimumLength = PhoneMaxLength)]
-        [RegularExpression(@"[0-9]+", ErrorMessage = "\"{0}\" must contains only numbers")]
+        [RegularExpression(@"^[0-9]+", ErrorMessage = "\"{0}\" must contains only numbers")]
         public string Phone { get; set; }
 
         [Required]

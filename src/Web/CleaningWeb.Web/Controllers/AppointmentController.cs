@@ -13,16 +13,16 @@
 
     public class AppointmentController : BaseController
     {
-        private readonly IAppointmentsService appointmentService;
+        private readonly IAppointmentsService appointmentsService;
         private readonly IEmailsService emailsService;
         private readonly IEmailSender emailSender;
 
         public AppointmentController(
-            IAppointmentsService appointmentService,
+            IAppointmentsService appointmentsService,
             IEmailsService emailsService,
             IEmailSender emailSender)
         {
-            this.appointmentService = appointmentService;
+            this.appointmentsService = appointmentsService;
             this.emailsService = emailsService;
             this.emailSender = emailSender;
         }
@@ -35,7 +35,7 @@
                 return this.View(model);
             }
 
-            var isSuccessful = await this.appointmentService.MakeAppointmentAsync(model);
+            var isSuccessful = await this.appointmentsService.MakeAppointmentAsync(model);
 
             if (!isSuccessful)
             {
@@ -52,6 +52,7 @@
                 GlobalConstants.SystemEmail, // Put the email on which you want to receive the messages.
                 title,
                 content);
+
             this.TempData["Message"] = $"Your appointment was sent successfully";
 
             return this.Redirect("/");

@@ -9,6 +9,7 @@
     using CleaningWeb.Data.Repositories;
     using CleaningWeb.Data.Seeding;
     using CleaningWeb.Services.Data;
+    using CleaningWeb.Services.Data.Administator;
     using CleaningWeb.Services.Data.Appointment;
     using CleaningWeb.Services.Data.Business;
     using CleaningWeb.Services.Data.Company;
@@ -82,9 +83,10 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IBusinessService, BusinessService>();
             services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<IAppointmentsService, AppointmentsService>();
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IServiceService, ServiceService>();
-            services.AddTransient<IAppointmentsService, AppointmentsService>();
+            services.AddTransient<IAdministratorService, AdministratorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

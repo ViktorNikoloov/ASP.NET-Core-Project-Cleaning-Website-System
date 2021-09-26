@@ -20,6 +20,7 @@
 
         [Required]
         [MaxLength(DescriptionMaxLength)]
+
         public string Description { get; set; }
 
         [Required]

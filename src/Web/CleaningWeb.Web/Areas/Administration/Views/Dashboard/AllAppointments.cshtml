@@ -1,0 +1,42 @@
+﻿@using CleaningWeb.Web.ViewModels.Administration.Dashboard
+@model AppointmentsListViewModel
+@{
+    ViewData["Title"] = "All Apointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="center">All appointments</h2>
+
+<table class="table table-responsive-sm table-active table-hover table-bordered border-primary">
+    <thead>
+        <tr>
+            <th scope="col">Created on</th>
+            <th scope="col">Client's name</th>
+            <th scope="col">Clieant's phone'</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model.AllAppointments)
+        {
+            <tr>
+                <td>@appointment.CreatedOn</td>
+                <td>@appointment.Name</td>
+                <td>@appointment.Phone</td>
+                <td>@appointment.Description</td>
+                <td>
+                    <a class="btn btn-outline-primary" data-position="right" data-tooltip="Повече информация" asp-area="Administration" asp-controller="Dashboard" asp-action="" asp-route-id="@appointment.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="4">
+                <div>
+                    <a asp-area="Administration" asp-controller="Dashboard" asp-action="CollectedInformation" class="btn btn-outline-primary btn-icon btn-block">
+                        <i class="fas fa-arrow-left">Back</i>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
