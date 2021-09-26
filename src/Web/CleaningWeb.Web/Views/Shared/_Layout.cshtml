@@ -1,4 +1,4 @@
-﻿@using CleaningWeb.Common
+@using CleaningWeb.Common
 @using CleaningWeb.Web.ViewModels.Layout
 @inject CleaningWeb.Services.Data.Company.ICompanyService CompanyService
 
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </nav>
-        <div class="hero-wrap js-fullheight" style="background-image: url('https://res.cloudinary.com/dvvbab0fs/image/upload/v1632517722/Recipients/README/IMG_9643_kcfmrh.jpg'); " data-stellar-background-ratio="0.5">
+        <div class="hero-wrap js-fullheight" style="background-image: url('https://res.cloudinary.com/dvvbab0fs/image/upload/v1632517722/Recipients/README/IMG_9643_kcfmrh.jpg'); " data-stellar-background-ratio="0.5">      
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
@@ -136,7 +136,7 @@
                     <div class="block-23 mb-3">
                         <ul>
                             <li><span class="icon fa fa-map-marker"></span><span class="text">@address</span></li>
-                            <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">@phone.Substring(0, 4) @phone.Substring(4)</span></a></li>
+                            <li><a href="tel://@phone"><span class="icon fa fa-phone"></span><span class="text">@phone.Substring(0, 4) @phone.Substring(4)</span></a></li>
                             <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">@email</span></a></li>
                         </ul>
                     </div>

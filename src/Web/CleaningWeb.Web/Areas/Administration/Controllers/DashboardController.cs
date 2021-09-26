@@ -1,6 +1,5 @@
 ﻿namespace CleaningWeb.Web.Areas.Administration.Controllers
 {
-    using CleaningWeb.Services.Data;
     using CleaningWeb.Services.Data.Administator;
     using CleaningWeb.Web.ViewModels.Administration.Dashboard;
 

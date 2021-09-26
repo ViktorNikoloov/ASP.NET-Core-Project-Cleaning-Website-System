@@ -1,9 +1,10 @@
 ﻿namespace CleaningWeb.Web.Controllers
 {
+    using System.Threading.Tasks;
+
     using CleaningWeb.Services.Data.Contact;
     using CleaningWeb.Web.ViewModels;
     using Microsoft.AspNetCore.Mvc;
-    using System.Threading.Tasks;
 
     public class ContactController : BaseController
     {
@@ -14,6 +15,7 @@
             this.contactService = contactService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return this.View();
@@ -29,7 +31,7 @@
 
             await this.contactService.CreateContactFromCustomer(model);
 
-            return this.View();
+            return this.RedirectToAction("Index", "Home");
         }
     }
 }
