@@ -3,7 +3,8 @@
     using System.Collections.Generic;
 
     using CleaningWeb.Web.ViewModels.About;
-    using CleaningWeb.Web.ViewModels.Appointmen;
+    using CleaningWeb.Web.ViewModels.Appointment;
+    using CleaningWeb.Web.ViewModels.Service;
 
     public class HomeViewModel
     {

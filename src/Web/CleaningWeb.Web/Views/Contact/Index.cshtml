@@ -1,5 +1,4 @@
-﻿@using CleaningWeb.Web.Controllers
-@using CleaningWeb.Web.ViewModels.Layout
+﻿@using CleaningWeb.Web.ViewModels.Layout
 @model ContactFormModel
 @inject CleaningWeb.Services.Data.Company.ICompanyService CompanyService
 
@@ -9,7 +8,7 @@
     var model = CompanyService.GetCompanyInfoViewModel<CompanyInfoViewModel>();
     var email = model.Email;
     var address = model.Address;
-    var phone = model.Phone;
+    var phone = model.PhoneNumber;
 }
 
 
@@ -18,7 +17,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="wrapper">
-                    <div class="row mb-5">
+                    <div class="row mb-5 offset-1 ">
                         <div class="col-md-3">
                             <div class="dbox w-100 text-center">
                                 <div class="icon d-flex align-items-center justify-content-center">
@@ -39,37 +38,30 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="dbox w-100 text-center">
                                 <div class="icon d-flex align-items-center justify-content-center">
                                     <span class="fa fa-paper-plane"></span>
                                 </div>
                                 <div class="text">
-                                    <p><span>Email:</span> <a href="mailto:cleaningcompany@cleaningcompany.bg">info@cleaningcompany.bg</a></p>
+                                    <p><span>Email:</span> <a href="mailto:master.servicesmd@gmail.com">master.servicesmd@gmail.com</a></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="dbox w-100 text-center">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="fa fa-globe"></span>
-                                </div>
-                                <div class="text">
-                                    <p><span>Website</span> <a href="#">cleaningcompany.bg</a></p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="row no-gutters">
                         <div class="col-md-7">
                             <div class="contact-wrap w-100 p-md-5 p-4">
-                                <h3 class="mb-4">Contact Us</h3>
-                                <div id="form-message-warning" class="mb-4"></div>
+                                <h3 class="mb-4">Get in Touch</h3>
+                                <div id="form-message-warning" class=""></div>
+                                <div id="form-message-success" class="">
+                                    Questions, comments or requests?
+                                </div>
                                 <div id="form-message-success" class="mb-4">
-                                    Your message was sent, thank you!
+                                    Feel free to reach out, we’d love to hear from you.s
                                 </div>
                                 <form method="post" id="contactForm" name="contactForm" class="contactForm">
-                                    @*<div asp-validation-summary="All" class="text-danger"></div>*@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -106,7 +98,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form> 
+                                </form>
                             </div>
                         </div>
                         <div class="col-md-5 d-flex align-items-stretch">

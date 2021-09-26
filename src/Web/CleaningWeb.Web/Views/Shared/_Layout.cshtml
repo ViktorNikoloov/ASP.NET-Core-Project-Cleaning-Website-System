@@ -6,7 +6,7 @@
     var model = CompanyService.GetCompanyInfoViewModel<CompanyInfoViewModel>();
     var email = model.Email;
     var address = model.Address;
-    var phone = model.Phone;
+    var phone = model.PhoneNumber;
 }
 
 
@@ -137,7 +137,7 @@
                     <div class="block-23 mb-3">
                         <ul>
                             <li><span class="icon fa fa-map-marker"></span><span class="text">@address</span></li>
-                            <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">@phone.Substring(0, 4) @phone.Substring(4)</span></a></li>
+                            <li><a href="tel://@phone"><span class="icon fa fa-phone"></span><span class="text">@phone.Substring(0, 4) @phone.Substring(4)</span></a></li>
                             <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">@email</span></a></li>
                         </ul>
                     </div>
