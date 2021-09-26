@@ -7,8 +7,9 @@
     var email = model.Email;
     var address = model.Address;
     var phone = model.Phone;
-    ;
+    var companyFullName = $"{@GlobalConstants.SystemNameFirstPart} {@GlobalConstants.SystemNameFirstPart}";
 }
+
 
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
+    <title>@this.ViewData["Title"] -companyFullName</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,27 +40,17 @@
                 <div class="row justify-content-between">
                     <div class="col-12 col-md d-flex align-items-center">
                         <p class="mb-0 phone">
-                            <i class="fas fa-phone-volume"> <span class="mailus">Phone no:</span> <a href="#">+@phone</a></i>
-                            <i class="fas fa-at"></i> <span class="mailus">email us:</span> <a href="#">@email</a>
-                            <i class="fas fa-envelope-open-text"></i> <span class="mailus">address us:</span> <a href="#">@address</a>
+                            <i class="fas fa-phone-volume" style="color:yellow;"> <span class="mailus">Phone no:</span> <a href="#">+@phone</a></i>
+                            <i class="fas fa-at"style="color:yellow;"></i> <span class="mailus">email us:</span> <a href="#">@email</a>
+                            <i class="fas fa-envelope-open-text" style="color:yellow;"></i> <span class="mailus">address us:</span> <a href="#">@address</a>
                         </p>
-                    </div>
-                    <div class="col-12 col-md d-flex justify-content-md-end">
-                        <div class="social-media">
-                            <p class="mb-0 d-flex">
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-                                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cleaning<span>company</span></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemNameFirstPart<span>@GlobalConstants.SystemNameSecondPart</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
                 </button>
@@ -73,8 +64,15 @@
             <div class="container">
                 <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
                     <div class="col-md-6 ftco-animate">
-                        <h2 class="subheading">Leave the house cleaning chores to us</h2>
-                        <h1 class="mb-4">Let us do the dirty work, so you don't have to.</h1>
+                        <p @*class="subheading"*@ style="color:yellow;">Services you can count on !</p>
+                        <h5 class="mb-4 text-white">
+                            <b>
+                                YOUR SATISFACTION IS OUR TOP PRIORITY
+                                Master Services Inc has highly trained professionals for commercial cleaning services. We specialize in daily cleaning, detail deep cleaning, strip and wax services, power wash and many more of your cleaning needs.
+                                Servicing our customers in the Portland area since 2010.
+                                We are fully insured and bonded and provide direct supervision and quality work.
+                            </b>
+                        </h5>
                         <p><a href="#" class="btn btn-primary mr-md-4 py-2 px-4">Learn more <span class="ion-ios-arrow-forward"></span></a></p>
                     </div>
                 </div>
